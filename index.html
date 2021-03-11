@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onmousedown="wrap6()">Argument override</button><br>
+    <button onmousedown="wrap1()">Removing unwanted element in array</button><br>
+    <button onmousedown="wrap5()">Duplicate-free Array</button><br>
+    <button onmousedown="wrap2()">multi-dimensional array into single array</button><br>
+    <button onmousedown="wrap4()">Splitting array base on size</button><br>
+    <button onmousedown="wrap3()">Re-arrange Array in descending order</button>
+
+    <script>
+
+function wrap6(){
+    function addArr(a, b){
+    consArr = [];
+    for(var i=0; i< a; i ++){
+        consArr[i] = b;
+    }
+    return consArr;
+}
+console.log(addArr(3, 'd'));
+}
+
+//  controlling Duplicate in an array
+
+
+function wrap5(){
+    var arryRepeat = [1, 2, 3, 1, 2,6,2,4,7,4,7];
+Array.prototype.unique = function (){
+    var unique = [];
+    for(var i = 0; i < this.length; i++){
+        var current = this[i];
+        if(unique.indexOf(current)< 0)unique.push(current);
+    }
+    return unique;
+}
+console.log(arryRepeat.unique());
+}
+
+// <----Split Array Using Splice--->
+
+function wrap4(){
+    const data = [1, 2, 3, 4, 5, 6, 7];
+const sizeTwo = 2;
+const sizeThree = 3;
+function splitArry(data, size){
+
+    while(data.length > 0){
+        let program;
+        program = data.splice(0, size)
+        console.log(program)
+    }
+
+
+}
+console.log(splitArry(data, sizeTwo));
+
+}
+
+
+// <----Removing unwanted element from array--->
+
+function wrap1(){
+    var arrCheck = [0, 1, false, 2, undefined, '', 3, null];
+
+function popOut(delNum){
+    var newArrget = [];
+    for(i = 0; i < delNum.length; i++){
+        if(delNum[i]){
+            newArrget[newArrget.length] = delNum[i];
+        }else{
+            null
+        }
+    }
+    return newArrget;
+}
+alert(popOut(arrCheck));
+}
+
+
+
+// Merging multi-dimensional array to a single dimensional
+
+
+function wrap2(){
+    var multiArr = [1, 2, [3, 4, [5]]];
+var singleArr = [];
+
+// console.log(singleArr,are);
+for (var i =0; i < multiArr.length; i++){
+    singleArr[singleArr.length]= multiArr[i];
+    for(var j = 0; j<multiArr[i].length; j++){
+        singleArr[singleArr.length]= multiArr[i][j];
+           for(var m = 0; m < multiArr[i][j].length; m++){
+            singleArr[singleArr.length]= multiArr[i][j][m];
+          
+    }
+    }    
+}
+
+// newMe[newMe.length] = singleArr[x].concat(singleArr[x][n])
+
+singleArr.splice(2, 1);
+singleArr.splice(4,1)
+console.log(singleArr);
+}
+        
+        
+     
+// Arrange array element in descending order
+
+
+function wrap3(){
+    var arr = [2,6,3,1,6,7,2,5,0];
+var newArr = [];
+
+for(var i = arr.length-1; i >= 0 ; i--){
+     newArr[newArr.length] = arr[i];
+}
+
+    // console.log(newArr);
+    arr = newArr;
+    console.log(arr)
+}
+    </script>
+</body>
+</html>
